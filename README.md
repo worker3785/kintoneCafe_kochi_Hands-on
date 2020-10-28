@@ -2,39 +2,16 @@
 
 ## サンプルコード
 ```
-//データを登録するkintoneの選択
-function sendToKintone(e) {
-    'use strict';
-    Logger.log('Form submitted');
-  
-  　//サブドメインを入力(~.cybozu.com)
-    var subdomain = "〜〜〜.cybozu.com";
-  
-  　//データを登録するアプリの選択
-    var apps = {
-        YOUR_APPLICATION1: { appid: アプリID, name: "kintoneCafe-Vol.13参加アンケート", token: "取得したAPIトークン" }
-    };
-  
-  　// ライブラリーの初期化
-    var manager = new KintoneManager.KintoneManager(subdomain, apps);
-    var str = getFormResponse(e);
-  　
-  　//JSON形式に変換
-    str = str.replace(/\n/g, "\\n").replace(/\r/g, "\\r").replace(/\t/g, "\\t");
-    var records = JSON.parse(str);
-  
-  　//kintone レコードの生成
-    var response = manager.create("YOUR_APPLICATION1", records);
-  
-    // ステータスコード
-    // 成功すれば200になる
-    var code = response.getResponseCode();
-    Logger.log('Response code is "%s"', code);
-}
+//以下の3行を変更します。
+const MYSUBDOMAIN = "サブドメインを入力";
+const APPID = アプリIDを入力;
+const APITOKEN = "kintoneAPIを入力";
 
-//アンケートの回答を取得
+
 function getFormResponse(e) {
     'use strict';
+  
+  　//アンケートの回答を取得
     var itemResponses = e.response.getItemResponses();
   
   　//取得した回答を配列化
@@ -75,5 +52,35 @@ function getFormResponse(e) {
     Logger.log('Response JSON is "%s"', records);
   
     return records;
+}
+
+//データを登録するkintoneの選択
+function sendToKintone(e) {
+    'use strict';
+    Logger.log('Form submitted');
+  
+  　//サブドメインを入力(~.cybozu.com)
+    var subdomain = MYSUBDOMAIN;
+  
+  　//データを登録するアプリの選択
+    var apps = {
+        YOUR_APPLICATION1: { appid: APPID, name: "kintoneCafe-Vol.13参加アンケート", token: APITOKEN }
+    };
+  
+  　// ライブラリーの初期化
+    var manager = new KintoneManager.KintoneManager(subdomain, apps);
+    var str = getFormResponse(e);
+  　
+  　//JSON形式に変換
+    str = str.replace(/\n/g, "\\n").replace(/\r/g, "\\r").replace(/\t/g, "\\t");
+    var records = JSON.parse(str);
+  
+  　//kintone レコードの生成
+    var response = manager.create("YOUR_APPLICATION1", records);
+  
+    // ステータスコード
+    // 成功すれば200になる
+    var code = response.getResponseCode();
+    Logger.log('Response code is "%s"', code);
 }
 ```
