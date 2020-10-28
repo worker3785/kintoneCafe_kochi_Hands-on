@@ -8,11 +8,11 @@ function sendToKintone(e) {
     Logger.log('Form submitted');
   
   　//サブドメインを入力(~.cybozu.com)
-    var subdomain = "devcumafy.cybozu.com";
+    var subdomain = "〜〜〜.cybozu.com";
   
   　//データを登録するアプリの選択
     var apps = {
-        YOUR_APPLICATION1: { appid: 37, name: "kintoneCafe-Vol.13参加アンケート", token: "mPUnXhCSr47vQJPN5Zi0JE9j7r3a58LtHYX9J1Sy" }
+        YOUR_APPLICATION1: { appid: アプリID, name: "kintoneCafe-Vol.13参加アンケート", token: "取得したAPIトークン" }
     };
   
   　// ライブラリーの初期化
