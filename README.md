@@ -2,6 +2,36 @@
 
 ## サンプルコード
 ```
+//データを登録するkintoneの選択
+function sendToKintone(e) {
+    'use strict';
+    Logger.log('Form submitted');
+  
+  　//サブドメインを入力(~.cybozu.com)
+    var subdomain = "devcumafy.cybozu.com";
+  
+  　//データを登録するアプリの選択
+    var apps = {
+        YOUR_APPLICATION1: { appid: 37, name: "kintoneCafe-Vol.13参加アンケート", token: "mPUnXhCSr47vQJPN5Zi0JE9j7r3a58LtHYX9J1Sy" }
+    };
+  
+  　// ライブラリーの初期化
+    var manager = new KintoneManager.KintoneManager(subdomain, apps);
+    var str = getFormResponse(e);
+  　
+  　//JSON形式に変換
+    str = str.replace(/\n/g, "\\n").replace(/\r/g, "\\r").replace(/\t/g, "\\t");
+    var records = JSON.parse(str);
+  
+  　//kintone レコードの生成
+    var response = manager.create("YOUR_APPLICATION1", records);
+  
+    // ステータスコード
+    // 成功すれば200になる
+    var code = response.getResponseCode();
+    Logger.log('Response code is "%s"', code);
+}
+
 function getFormResponse(e) {
     'use strict';
   
@@ -46,35 +76,5 @@ function getFormResponse(e) {
     Logger.log('Response JSON is "%s"', records);
   
     return records;
-}
-
-//データを登録するkintoneの選択
-function sendToKintone(e) {
-    'use strict';
-    Logger.log('Form submitted');
-  
-  　//サブドメインを入力(~.cybozu.com)
-    var subdomain = "〜.cybozu.com";
-  
-  　//データを登録するアプリの選択
-    var apps = {
-        YOUR_APPLICATION1: { appid: アプリID, name: "kintoneCafe-Vol.13参加アンケート", token: "取得したAPIトークン" }
-    };
-  
-  　// ライブラリーの初期化
-    var manager = new KintoneManager.KintoneManager(subdomain, apps);
-    var str = getFormResponse(e);
-  　
-  　//JSON形式に変換
-    str = str.replace(/\n/g, "\\n").replace(/\r/g, "\\r").replace(/\t/g, "\\t");
-    var records = JSON.parse(str);
-  
-  　//kintone レコードの生成
-    var response = manager.create("YOUR_APPLICATION1", records);
-  
-    // ステータスコード
-    // 成功すれば200になる
-    var code = response.getResponseCode();
-    Logger.log('Response code is "%s"', code);
 }
 ```
