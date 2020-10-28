@@ -32,10 +32,9 @@ function sendToKintone(e) {
     Logger.log('Response code is "%s"', code);
 }
 
+//アンケートの回答を取得
 function getFormResponse(e) {
     'use strict';
-  
-  　//アンケートの回答を取得
     var itemResponses = e.response.getItemResponses();
   
   　//取得した回答を配列化
