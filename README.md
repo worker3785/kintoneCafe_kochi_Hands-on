@@ -3,9 +3,9 @@
 ## サンプルコード
 ```
 //以下の3行を変更します。
-const MYSUBDOMAIN = "サブドメインを入力";
-const APPID = アプリIDを入力;
-const APITOKEN = "kintoneAPIを入力";
+const MYSUBDOMAIN = "devcumafy.cybozu.com";
+const APPID = 37;
+const APITOKEN = "mPUnXhCSr47vQJPN5Zi0JE9j7r3a58LtHYX9J1Sy";
 
 
 function getFormResponse(e) {
@@ -40,7 +40,7 @@ function getFormResponse(e) {
                 break;
             
             //質問3に対する回答を取得
-            case "参加経緯":
+            case "ハンズオン感想":
                 records += Utilities.formatString(',"question3" : { "value": "%s" }',
                     itemResponse.getResponse());
                 break;
