@@ -3,9 +3,9 @@
 ## サンプルコード
 ```
 //以下の3行を変更します。
-const MYSUBDOMAIN = "devcumafy.cybozu.com";
-const APPID = 37;
-const APITOKEN = "mPUnXhCSr47vQJPN5Zi0JE9j7r3a58LtHYX9J1Sy";
+const MYSUBDOMAIN = "サブドメインを入力";
+const APPID = アプリIDを入力;
+const APITOKEN = "取得したkintoneAPIを入力";
 
 
 function getFormResponse(e) {
