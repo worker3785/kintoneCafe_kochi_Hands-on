@@ -1,6 +1,11 @@
 # kintoneCafe_kochi_Hands-on
+## ハンスオンで利用するURL等
 
-## サンプルコード
+### ライブラリのプロジェクトキー
+MDT2NQ9jkAGYJ-7ftp_A0v08CaFRWuzzx
+
+
+### サンプルコード
 ```
 //以下の3行を変更します。
 const MYSUBDOMAIN = "サブドメインを入力";
