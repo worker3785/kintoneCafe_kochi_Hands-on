@@ -5,7 +5,7 @@
 MDT2NQ9jkAGYJ-7ftp_A0v08CaFRWuzzx
 ```
 
-## サンプルコード
+## Google Apps Script サンプルコード
 ```
 //以下の3行を変更します。
 const MYSUBDOMAIN = "サブドメインを入力";
